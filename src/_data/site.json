@@ -8,7 +8,7 @@
   "signalNoise": "▓▒░▒▓▒░▒▓",
   "whoami": {
     "bio": "racc.",
-    "image": ""
+    "image": "/images/rac.png"
   },
   "buttons": [
     { "src": "/images/surshy_button.png", "alt": "surshy", "url": "#" }
