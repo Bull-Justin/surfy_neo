@@ -1,0 +1,26 @@
+{
+  "title": "[ s u r s h y ]",
+  "url": "https://surshy.neocities.org",
+  "tagline": "mostly harmless. occasionally feral.",
+  "about": "a raccoon's corner of the wired. transmissions from somewhere between ga and your trash.",
+  "lurkingIn": "[ ur garbage ]",
+  "status": "online",
+  "signalNoise": "▓▒░▒▓▒░▒▓",
+  "whoami": {
+    "bio": "racc.",
+    "image": ""
+  },
+  "buttons": [
+    { "src": "/images/surshy_button.png", "alt": "surshy", "url": "#" }
+  ],
+  "lastfm": {
+    "username": "Sir_Corndog",
+    "apiKey": "4de4292fffe2a805705b9cabc2d65e43"
+  },
+  "socials": [
+    { "name": "bluesky", "url": "https://bsky.app/profile/surfy.bsky.social", "icon": "⊹" },
+    { "name": "last.fm", "url": "https://last.fm/user/Sir_Corndog", "icon": "⊹" },
+    { "name": "twitter", "url": "https://x.com/SirCorndoggius", "icon": "⊹" },
+    { "name": "discogs", "url": "https://www.discogs.com/user/SurfyZombieCrab", "icon": "⊹" }
+  ]
+}

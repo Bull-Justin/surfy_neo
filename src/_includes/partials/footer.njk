@@ -1,0 +1,10 @@
+<footer>
+  <div id="footer-buttons">
+    {%- for b in site.buttons %}
+    <a href="{{ b.url }}" target="_blank" rel="noopener noreferrer">
+      <img src="{{ b.src }}" alt="{{ b.alt }}" title="{{ b.alt }}">
+    </a>
+    {%- endfor %}
+  </div>
+  <span>{{ site.title }} · {{ year }}</span>
+</footer>

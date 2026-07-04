@@ -1,0 +1,68 @@
+/* fonts, reset, body styles, and the vignette overlay effects */
+@import url('https://fonts.googleapis.com/css2?family=VT323&family=Share+Tech+Mono&display=swap');
+
+*, *::before, *::after {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+html {
+  scrollbar-width: thin;
+  scrollbar-color: var(--border-bright) var(--bg-panel-dark);
+}
+
+::-webkit-scrollbar       { width: 6px; }
+::-webkit-scrollbar-track { background: var(--bg-panel-dark); }
+::-webkit-scrollbar-thumb { background: var(--border-bright); }
+
+body {
+  font-family: 'Share Tech Mono', 'Courier New', monospace;
+  background-color: var(--bg);
+  background-image: radial-gradient(circle, rgba(25, 30, 65, 0.55) 1px, transparent 1px);
+  background-size: 22px 22px;
+  color: var(--text);
+  font-size: 14px;
+  line-height: 1.65;
+  min-height: 100vh;
+}
+
+/* scanlines sit on top of everything via fixed position */
+body::after {
+  content: '';
+  position: fixed;
+  inset: 0;
+  background: repeating-linear-gradient(
+    0deg,
+    transparent,
+    transparent 3px,
+    var(--scanline) 3px,
+    var(--scanline) 4px
+  );
+  pointer-events: none;
+  z-index: 9999;
+}
+
+/* dark vignette around the edges */
+body::before {
+  content: '';
+  position: fixed;
+  inset: 0;
+  background: radial-gradient(ellipse at center,
+    transparent 55%,
+    rgba(0, 0, 8, 0.6) 100%
+  );
+  pointer-events: none;
+  z-index: 9998;
+}
+
+a {
+  color: var(--link);
+  text-decoration: none;
+  transition: color 0.12s;
+}
+
+a:hover {
+  color: var(--link-hover);
+  text-decoration: underline;
+}

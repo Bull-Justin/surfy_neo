@@ -1,0 +1,25 @@
+---
+layout: layouts/base.njk
+pageTitle: blog
+pageHeading: blog
+pageSubtitle: rac got the keyboard
+pageCss: blog.css
+face: "u.u"
+sidebarArt: |
+  /\_/\ /\_/\ /\_/\
+  (u.u) (>.<) (-_-)
+  /|  \ /|  \ /|  \
+---
+{%- if collections.posts.length %}
+{%- for post in collections.posts %}
+<article class="blog-entry">
+  <div class="entry-header">
+    <span class="entry-title">{{ post.data.title }}</span>
+    <span class="entry-date">{{ post.date | displayDate }}</span>
+  </div>
+  <div class="entry-body">{{ post.templateContent | safe }}</div>
+</article>
+{%- endfor %}
+{%- else %}
+<p class="empty">no entries yet.</p>
+{%- endif %}

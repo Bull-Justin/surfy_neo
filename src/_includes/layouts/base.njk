@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="theme-color" content="#05050d">
+  <title>{{ site.title }} — {{ pageTitle }}</title>
+  <link rel="stylesheet" href="/css/tokens.css">
+  <link rel="stylesheet" href="/css/base.css">
+  <link rel="stylesheet" href="/css/layout.css">
+  <link rel="stylesheet" href="/css/components.css">
+  {%- if pageCss %}
+  <link rel="stylesheet" href="/css/{{ pageCss }}">
+  {%- endif %}
+  <link rel="alternate" type="application/atom+xml" title="{{ site.title }} feed" href="/feed.xml">
+</head>
+<body>
+  <div id="container">
+
+    {% include "partials/header.njk" %}
+
+    <div id="flex">
+
+      {% include "partials/sidebar-left.njk" %}
+
+      <main>
+        <div class="page-header">
+          <h1>{{ pageHeading }}</h1>
+          <p>{{ pageSubtitle }}</p>
+        </div>
+        {{ content | safe }}
+      </main>
+
+      {% include "partials/sidebar-right.njk" %}
+
+    </div>
+
+    {% include "partials/footer.njk" %}
+
+  </div>
+  <script type="module" src="/js/main.js"></script>
+</body>
+</html>

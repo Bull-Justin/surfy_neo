@@ -1,0 +1,23 @@
+<aside id="rightSidebar">
+  <h2>// connect</h2>
+  <ul>
+    {%- for s in site.socials %}
+    <li><a href="{{ s.url }}" target="_blank" rel="noopener noreferrer">{{ s.icon }} {{ s.name }}</a></li>
+    {%- endfor %}
+    <li><a href="/feed.xml">⊹ rss</a></li>
+  </ul>
+  {% if site.lastfm.username and site.lastfm.apiKey %}
+  <div id="now-playing-section">
+    <h2>// now playing</h2>
+    <div id="now-playing"
+         data-lastfm-user="{{ site.lastfm.username }}"
+         data-lastfm-key="{{ site.lastfm.apiKey }}"><span class="loading">fetching...</span></div>
+  </div>
+  {% endif %}
+  <h2>// signal</h2>
+  <div class="status-box">
+    <span class="signal-noise">{{ site.signalNoise }}</span>
+    <span class="status-label">status:</span>
+    <span class="status-val">{{ site.status }}</span>
+  </div>
+</aside>

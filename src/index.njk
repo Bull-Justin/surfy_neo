@@ -1,0 +1,62 @@
+---
+layout: layouts/base.njk
+pageTitle: home
+pageHeading: transmissions
+pageSubtitle: latest entries from across the site
+face: "-.-"
+---
+<div class="who-widget">
+  <div class="who-img-wrap">
+    {%- if site.whoami.image %}
+    <img src="{{ site.whoami.image }}" alt="me">
+    {%- else %}
+    <div class="who-img-placeholder">?</div>
+    {%- endif %}
+  </div>
+  <p class="who-bio">{{ site.whoami.bio }}</p>
+</div>
+
+<div class="widget">
+  <h2>// latest blog post</h2>
+  {%- set b = collections.posts[0] %}
+  {%- if b %}
+  <div class="widget-entry">
+    <span class="entry-title">{{ b.data.title }}</span>
+    <span class="entry-date">{{ b.date | displayDate }}</span>
+    <span class="entry-preview">{{ b.templateContent | striptags | excerpt(130) }}</span>
+    <a class="entry-link" href="/blog/">[ read more → ]</a>
+  </div>
+  {%- else %}
+  <span class="empty">no entries yet.</span>
+  {%- endif %}
+</div>
+
+<div class="widget">
+  <h2>// latest music review</h2>
+  {%- set m = collections.reviews[0] %}
+  {%- if m %}
+  <div class="widget-entry">
+    <span class="entry-title">{{ m.data.artist }} — {{ m.data.album }}</span>
+    <span class="entry-date">released {{ m.data.released | displayDate }} · {{ m.data.rating }}</span>
+    <span class="entry-preview">{{ m.templateContent | striptags | excerpt(130) }}</span>
+    <a class="entry-link" href="/music/">[ read review → ]</a>
+  </div>
+  {%- else %}
+  <span class="empty">no entries yet.</span>
+  {%- endif %}
+</div>
+
+<div class="widget">
+  <h2>// latest project</h2>
+  {%- set p = (projects | sort(true, false, "date"))[0] %}
+  {%- if p %}
+  <div class="widget-entry">
+    <span class="entry-title">{{ p.title }}</span>
+    <span class="entry-date">{{ p.date | displayDate }}</span>
+    <span class="entry-preview">{{ p.description | excerpt(130) }}</span>
+    <a class="entry-link" href="/projects/">[ view project → ]</a>
+  </div>
+  {%- else %}
+  <span class="empty">no entries yet.</span>
+  {%- endif %}
+</div>

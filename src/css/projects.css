@@ -1,0 +1,77 @@
+/* project cards */
+
+.project-card {
+  border: 1px solid var(--border);
+  padding: 14px 16px;
+  margin-bottom: 12px;
+  background-color: var(--bg-inset);
+  transition: border-color 0.15s;
+}
+
+.project-card:hover {
+  border-color: var(--border-bright);
+}
+
+.project-title {
+  font-family: 'VT323', monospace;
+  font-size: 24px;
+  color: var(--heading);
+  letter-spacing: 1px;
+  display: block;
+  margin-bottom: 6px;
+}
+
+.project-desc {
+  font-size: 12px;
+  color: var(--text);
+  line-height: 1.7;
+  margin-bottom: 10px;
+}
+
+.project-footer {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 10px;
+  flex-wrap: wrap;
+}
+
+.project-tags {
+  display: flex;
+  gap: 5px;
+  flex-wrap: wrap;
+}
+
+.project-tag {
+  background-color: var(--bg-panel-dark);
+  border: 1px solid var(--border-bright);
+  color: var(--text-dim);
+  font-size: 10px;
+  padding: 1px 7px;
+  font-family: 'Share Tech Mono', monospace;
+  letter-spacing: 0.5px;
+}
+
+.project-meta {
+  display: flex;
+  gap: 10px;
+  align-items: center;
+}
+
+.project-date {
+  font-size: 10px;
+  color: var(--text-dim);
+  letter-spacing: 1px;
+}
+
+.project-link {
+  font-family: 'VT323', monospace;
+  font-size: 17px;
+  letter-spacing: 1px;
+  color: var(--link);
+}
+
+.project-link:hover {
+  color: var(--link-hover);
+  text-decoration: none;
+}

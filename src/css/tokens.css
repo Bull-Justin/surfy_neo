@@ -1,0 +1,21 @@
+/* all the color/spacing vars live here*/
+:root {
+  --bg:             #05050d;
+  --bg-panel:       #09091a;
+  --bg-panel-dark:  #060610;
+  --bg-inset:       #0d0d20;
+  --border:         #161630;
+  --border-bright:  #22224a;
+  --text:           #9aa0bc;
+  --text-dim:       #484c66;
+  --text-bright:    #c8cce0;
+  --accent:         #6070c0;
+  --accent-pale:    #8890c8;
+  --link:           #6aaad0;
+  --link-hover:     #98c8e0;
+  --heading:        #8898c8;
+  --heading-glow:   rgba(100, 120, 200, 0.35);
+  --warn:           #b89858;
+  --raccoon:        #707888;
+  --scanline:       rgba(0, 0, 10, 0.08);
+}

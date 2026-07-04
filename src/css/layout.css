@@ -1,0 +1,311 @@
+/* everything structural - header, nav, sidebars, main, feet....🥴 */
+
+/* the outer wrapper that centers everything */
+#container {
+  max-width: 960px;
+  margin: 0 auto;
+  padding: 12px 12px 0;
+}
+
+/* header */
+#headerArea {
+  margin-bottom: 8px;
+}
+
+#header {
+  background-color: var(--bg-panel-dark);
+  border: 1px solid var(--border-bright);
+  border-bottom: none;
+  padding: 18px 22px;
+  display: flex;
+  align-items: center;
+  gap: 22px;
+  min-height: 130px;
+  position: relative;
+  overflow: hidden;
+}
+
+#header::after {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(180deg, rgba(40, 45, 100, 0.18) 0%, transparent 60%);
+  pointer-events: none;
+}
+
+.header-raccoon {
+  font-family: 'Share Tech Mono', monospace;
+  font-size: 10.5px;
+  color: var(--raccoon);
+  line-height: 1.35;
+  white-space: pre;
+  opacity: 0.72;
+  flex-shrink: 0;
+  text-shadow: 0 0 8px rgba(80, 90, 130, 0.4);
+}
+
+.header-title-block {
+  flex: 1;
+}
+
+/* glitch title - the ::before and ::after are colored copies that clip in and out */
+.site-title {
+  font-family: 'VT323', monospace;
+  font-size: 58px;
+  color: var(--heading);
+  letter-spacing: 6px;
+  line-height: 1;
+  text-shadow:
+    0 0 18px var(--heading-glow),
+    0 0 40px rgba(70, 90, 180, 0.18);
+  position: relative;
+  display: inline-block;
+  user-select: none;
+}
+
+.site-title::before,
+.site-title::after {
+  content: attr(data-text);
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  font-family: 'VT323', monospace;
+  font-size: 58px;
+  letter-spacing: 6px;
+  line-height: 1;
+}
+
+.site-title::before {
+  color: #3a58b0;
+  animation: glitch-a 9s infinite;
+}
+
+.site-title::after {
+  color: #3890b0;
+  animation: glitch-b 9s infinite;
+}
+
+@keyframes glitch-a {
+  0%, 84%, 100% { clip-path: inset(0 0 100% 0); transform: none; }
+  85%            { clip-path: inset(12% 0 72% 0); transform: translate(-3px, 0); }
+  86.5%          { clip-path: inset(52% 0 28% 0); transform: translate(2px,  0); }
+  88%            { clip-path: inset(78% 0 4%  0); transform: translate(-2px, 0); }
+  89%            { clip-path: inset(0 0 100% 0);  transform: none; }
+}
+
+@keyframes glitch-b {
+  0%, 84%, 100% { clip-path: inset(0 0 100% 0); transform: none; }
+  85.5%          { clip-path: inset(35% 0 48% 0); transform: translate(3px,  0); }
+  87%            { clip-path: inset(62% 0 18% 0); transform: translate(-2px, 0); }
+  88.5%          { clip-path: inset(0 0 100% 0);  transform: none; }
+}
+
+.tagline {
+  font-family: 'Share Tech Mono', monospace;
+  font-size: 11px;
+  color: var(--text-dim);
+  letter-spacing: 3px;
+  margin-top: 6px;
+  text-transform: lowercase;
+}
+
+#navbar {
+  background-color: var(--bg-panel-dark);
+  border: 1px solid var(--border-bright);
+  height: 36px;
+}
+
+#navbar ul {
+  display: flex;
+  list-style: none;
+  height: 100%;
+}
+
+#navbar li a {
+  display: flex;
+  align-items: center;
+  padding: 0 20px;
+  height: 100%;
+  font-family: 'VT323', monospace;
+  font-size: 21px;
+  color: var(--accent-pale);
+  text-decoration: none;
+  letter-spacing: 2px;
+  border-right: 1px solid var(--border);
+  transition: background-color 0.12s, color 0.12s;
+  position: relative;
+}
+
+#navbar li a::after {
+  content: '';
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 0;
+  height: 2px;
+  background: var(--accent-pale);
+  transition: width 0.15s;
+}
+
+#navbar li a:hover,
+#navbar li a.active {
+  background-color: var(--bg-inset);
+  color: var(--link-hover);
+  text-decoration: none;
+}
+
+#navbar li a:hover::after,
+#navbar li a.active::after {
+  width: 100%;
+}
+
+#flex {
+  display: flex;
+  gap: 8px;
+  margin-top: 8px;
+}
+
+aside {
+  background-color: var(--bg-panel);
+  border: 1px solid var(--border);
+  padding: 14px;
+  width: 168px;
+  flex-shrink: 0;
+  font-size: 12px;
+}
+
+#leftSidebar  { order: 1; }
+#rightSidebar { order: 3; }
+
+aside h2 {
+  font-family: 'VT323', monospace;
+  font-size: 19px;
+  color: var(--accent-pale);
+  letter-spacing: 1px;
+  border-bottom: 1px solid var(--border-bright);
+  padding-bottom: 5px;
+  margin-bottom: 9px;
+  margin-top: 16px;
+}
+
+aside h2:first-child {
+  margin-top: 0;
+}
+
+aside p {
+  color: var(--text-dim);
+  font-size: 11px;
+  line-height: 1.6;
+  margin-bottom: 10px;
+}
+
+aside ul {
+  list-style: none;
+}
+
+aside ul li {
+  padding: 3px 0;
+  border-bottom: 1px solid var(--border);
+  font-size: 12px;
+}
+
+aside ul li:last-child {
+  border-bottom: none;
+}
+
+aside a {
+  color: var(--link);
+  text-decoration: none;
+  transition: color 0.12s;
+}
+
+aside a:hover {
+  color: var(--link-hover);
+}
+
+.sidebar-raccoon {
+  font-family: 'Share Tech Mono', monospace;
+  font-size: 10px;
+  color: var(--raccoon);
+  line-height: 1.4;
+  white-space: pre;
+  margin: 10px 0;
+  opacity: 0.65;
+  text-align: center;
+}
+
+main {
+  background-color: var(--bg-panel);
+  border: 1px solid var(--border);
+  flex: 1;
+  padding: 20px 22px;
+  order: 2;
+  min-width: 0;
+}
+
+footer {
+  background-color: var(--bg-panel-dark);
+  border: 1px solid var(--border-bright);
+  border-top: none;
+  padding: 10px 14px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 8px;
+  font-size: 10px;
+  color: var(--text-dim);
+  letter-spacing: 2px;
+  margin-top: 8px;
+  margin-bottom: 12px;
+}
+
+#footer-buttons {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 4px;
+  justify-content: center;
+}
+
+#footer-buttons a img {
+  width: 88px;
+  height: 31px;
+  image-rendering: pixelated;
+  display: block;
+  border: 1px solid var(--border);
+  transition: border-color 0.12s, opacity 0.12s;
+}
+
+#footer-buttons a:hover img {
+  border-color: var(--border-bright);
+  opacity: 0.85;
+}
+
+/* mobile. stack sidebars below main, wrap nav links */
+@media only screen and (max-width: 820px) {
+  #flex { flex-wrap: wrap; }
+
+  aside {
+    width: 100%;
+    order: 9 !important;
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0 20px;
+  }
+
+  aside > * {
+    flex: 1;
+    min-width: 140px;
+  }
+
+  main { order: 1 !important; width: 100%; }
+
+  #navbar ul { flex-wrap: wrap; }
+
+  .site-title,
+  .site-title::before,
+  .site-title::after {
+    font-size: 40px;
+  }
+}

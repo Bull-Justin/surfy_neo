@@ -1,0 +1,16 @@
+{
+  "name": "surshy-website",
+  "version": "1.0.0",
+  "description": "surshy — a raccoon's corner of the wired. Static site built with Eleventy.",
+  "license": "MIT",
+  "private": true,
+  "type": "module",
+  "scripts": {
+    "dev": "eleventy --serve",
+    "build": "eleventy"
+  },
+  "devDependencies": {
+    "@11ty/eleventy": "^3.0.0",
+    "@11ty/eleventy-plugin-rss": "^3.0.0"
+  }
+}

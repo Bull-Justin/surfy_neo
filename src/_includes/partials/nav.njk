@@ -1,0 +1,7 @@
+<nav id="navbar">
+  <ul>
+    {%- for item in nav %}
+    <li><a href="{{ item.url }}"{% if page.url == item.url %} class="active"{% endif %}>{{ item.label }}</a></li>
+    {%- endfor %}
+  </ul>
+</nav>

@@ -1,0 +1,8 @@
+PLAN*
+
+# build + deps
+node_modules/
+_site/
+.cache
+
+README.md

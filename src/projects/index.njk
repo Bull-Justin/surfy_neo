@@ -1,0 +1,30 @@
+---
+layout: layouts/base.njk
+pageTitle: projects
+pageHeading: projects
+pageSubtitle: things built. things shipped. things tinkered with.
+pageCss: projects.css
+face: "u.u"
+---
+{%- set sorted = projects | sort(true, false, "date") %}
+{%- if sorted.length %}
+{%- for p in sorted %}
+<article class="project-card">
+  <span class="project-title">{{ p.title }}</span>
+  <p class="project-desc">{{ p.description }}</p>
+  <div class="project-footer">
+    <div class="project-tags">
+      {%- for t in p.tags %}<span class="project-tag">{{ t }}</span>{% endfor %}
+    </div>
+    <div class="project-meta">
+      <span class="project-date">{{ p.date | displayDate }}</span>
+      {%- if p.link and p.link != "#" %}
+      <a class="project-link" href="{{ p.link }}" target="_blank" rel="noopener noreferrer">[ visit → ]</a>
+      {%- endif %}
+    </div>
+  </div>
+</article>
+{%- endfor %}
+{%- else %}
+<p class="empty">no projects yet.</p>
+{%- endif %}

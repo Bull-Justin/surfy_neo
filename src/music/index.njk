@@ -1,0 +1,36 @@
+---
+layout: layouts/base.njk
+pageTitle: music
+pageHeading: music
+pageSubtitle: albums heard. opinions formed. favorites noted.
+pageCss: music.css
+face: "^.^"
+---
+{%- if collections.reviews.length %}
+{%- for review in collections.reviews %}
+<article class="music-review">
+  <div class="album-art">
+    {%- if review.data.albumArt %}
+    <img src="{{ review.data.albumArt }}" alt="{{ review.data.album }} cover art">
+    {%- else %}
+    <div class="art-placeholder">
+      <span class="art-noise">▓▒░▒▓</span>
+      [ no art ]<br>{{ review.data.artist }}
+    </div>
+    {%- endif %}
+  </div>
+  <div class="review-header">
+    <p class="review-artist">{{ review.data.artist }}</p>
+    <p class="review-album">{{ review.data.album }}</p>
+    <div class="review-meta">
+      <span class="rating">★ {{ review.data.rating }}</span>
+      <span class="fav-song">fav: <span>{{ review.data.favoriteSong }}</span></span>
+      <span>released {{ review.data.released | displayDate }}</span>
+    </div>
+  </div>
+  <div class="review-body">{{ review.templateContent | safe }}</div>
+</article>
+{%- endfor %}
+{%- else %}
+<p class="empty">no reviews yet.</p>
+{%- endif %}

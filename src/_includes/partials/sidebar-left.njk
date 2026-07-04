@@ -1,0 +1,23 @@
+<aside id="leftSidebar">
+  <h2>// about</h2>
+  <p>{{ site.about }}</p>
+  {% if sidebarArt -%}
+  <pre class="sidebar-raccoon">{{ sidebarArt | trim }}</pre>
+  {%- else -%}
+  <pre class="sidebar-raccoon">/\_/\
+( {{ face }} )
+/|   |\</pre>
+  {%- endif %}
+  <div class="status-box">
+    <span class="status-label">currently lurking in:</span>
+    <span class="status-val">{{ site.lurkingIn }}</span>
+  </div>
+  <h2>// navigate</h2>
+  <ul>
+    {%- for item in nav %}
+    {%- if page.url != item.url %}
+    <li><a href="{{ item.url }}">{{ "←" if item.url == "/" else "→" }} {{ item.label }}</a></li>
+    {%- endif %}
+    {%- endfor %}
+  </ul>
+</aside>
