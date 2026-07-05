@@ -228,6 +228,23 @@
   text-overflow: ellipsis;
 }
 
+/* lost signal fallback */
+.np-lost {
+  display: flex;
+  align-items: center;
+  gap: 7px;
+  font-size: 11px;
+  letter-spacing: 1px;
+  color: var(--text-dim);
+}
+
+.np-lost::before {
+  content: "░▒▓▒░";
+  color: var(--border-bright);
+  letter-spacing: -1px;
+  animation: blink 0.9s step-end infinite;
+}
+
 /* utility bits */
 .empty {
   color: var(--text-dim);
