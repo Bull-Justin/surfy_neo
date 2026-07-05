@@ -6,7 +6,7 @@ pageSubtitle: things built. things shipped. things tinkered with.
 pageCss: projects.css
 face: "u.u"
 ---
-{%- set sorted = projects | sort(true, false, "date") %}
+{%- set sorted = projects | rejectattr("draft") | sort(true, false, "date") %}
 {%- if sorted.length %}
 {%- for p in sorted %}
 <article class="project-card">

@@ -1,0 +1,25 @@
+---
+layout: layouts/base.njk
+pageTitle: TODO — tab title
+pageHeading: TODO — big heading
+pageSubtitle: TODO — the line under the heading
+# pageCss: TODO.css      # optional: an extra stylesheet placed in src/css/
+face: "u.u"              # raccoon face in the header + sidebar, e.g. "-.-" "^.^" "u.u"
+# sidebarArt: |          # optional: multi-line override for the sidebar raccoon
+#   /\_/\
+#   ( o.o )
+#   /|   |\
+---
+<p>Your section content here — plain HTML or njk.</p>
+
+{#
+  Copy file to: src/<section>/index.njk
+  add it to the nav by appending one line to src/_data/nav.json:
+      { "label": "<section>", "url": "/<section>/" }
+
+  To make it a markdown-driven listing (like blog / music):
+    1. Create src/<section>/items/ with a data file items.json: { "permalink": false }
+    2. Add markdown files there (frontmatter + body).
+    3. Register a collection in eleventy.config.js (copy the "posts" collection).
+    4. Loop it here:  {% for item in collections.<name> %} ... {% endfor %}
+#}
