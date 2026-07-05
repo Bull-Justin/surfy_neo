@@ -1,17 +1,66 @@
-name: Deploy to Neocities
+name: Deploy
 
-# add on push when repo is configured correctly 
+# dev -> gitHub pages 
+# prod -> neocities 
 on:
+  push:
+    branches: [dev, prod]
   workflow_dispatch:
-  # push:
-  #   branches: [prod]
+
+permissions:
+  contents: read
 
 concurrency:
-  group: neocities-deploy
+  group: deploy-${{ github.ref }}
   cancel-in-progress: false
 
 jobs:
-  deploy:
+  # dev: preview gitHub pages 
+  preview:
+    if: github.ref == 'refs/heads/dev'
+    runs-on: ubuntu-latest
+    permissions:
+      contents: read
+      pages: write
+      id-token: write
+    environment:
+      name: github-pages
+      url: ${{ steps.deployment.outputs.page_url }}
+    steps:
+      - name: Check out the repo
+        uses: actions/checkout@v4
+
+      - name: Set up Node
+        uses: actions/setup-node@v4
+        with:
+          node-version: 20
+          cache: npm
+
+      - name: Install dependencies
+        run: npm ci
+
+      - name: Run tests
+        run: npm test
+
+      # Github pages serves a project repo under /<repo>/, so building with that prefix. The HTML <base> plugin rewrites all root-relative asset URLs to match.
+      - name: Build the site (with Pages path prefix)
+        run: npx @11ty/eleventy --pathprefix="/${{ github.event.repository.name }}/"
+
+      - name: Configure Pages
+        uses: actions/configure-pages@v5
+
+      - name: Upload artifact
+        uses: actions/upload-pages-artifact@v3
+        with:
+          path: _site
+
+      - name: Deploy to GitHub Pages
+        id: deployment
+        uses: actions/deploy-pages@v4
+
+  # prod: production on meocities 
+  production:
+    if: github.ref == 'refs/heads/prod'
     runs-on: ubuntu-latest
     steps:
       - name: Check out the repo
@@ -25,6 +74,9 @@ jobs:
 
       - name: Install dependencies
         run: npm ci
+
+      - name: Run tests
+        run: npm test
 
       - name: Build the site
         run: npm run build
