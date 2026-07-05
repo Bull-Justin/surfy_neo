@@ -62,6 +62,9 @@ jobs:
   production:
     if: github.ref == 'refs/heads/prod'
     runs-on: ubuntu-latest
+    environment:
+      name: prod
+      url: https://surshy.neocities.org
     steps:
       - name: Check out the repo
         uses: actions/checkout@v4
