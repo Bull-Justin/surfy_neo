@@ -2,10 +2,11 @@
 layout: layouts/base.njk
 pageTitle: music
 pageHeading: music
-pageSubtitle: albums heard. opinions formed. favorites noted.
+pageSubtitle: albums heard.
 pageCss: music.css
 face: "^.^"
 ---
+<p class="section-link"><a href="/music/playlists/">monthly playlists →</a></p>
 {%- if collections.reviews.length %}
 {%- for review in collections.reviews %}
 <article class="music-review">

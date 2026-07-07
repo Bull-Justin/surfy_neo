@@ -1,0 +1,19 @@
+---
+layout: layouts/base.njk
+pageTitle: playlists
+pageHeading: monthly playlists
+pageSubtitle: one list a month.
+pageCss: music.css
+face: "-.-"
+---
+<p class="section-link"><a href="/music/">← reviews</a></p>
+{%- if collections.playlists.length %}
+{%- for playlist in collections.playlists %}
+<article class="playlist-entry">
+  <h2 class="playlist-month">{{ playlist.data.date | displayMonth }}</h2>
+  <div class="playlist-body">{{ playlist.templateContent | safe }}</div>
+</article>
+{%- endfor %}
+{%- else %}
+<p class="empty">no playlists yet.</p>
+{%- endif %}

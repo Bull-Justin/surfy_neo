@@ -34,6 +34,18 @@ export default function (eleventyConfig) {
     });
   });
 
+  // ISO date (YYYY-MM-DD) -> "July 2026"
+  eleventyConfig.addFilter("displayMonth", (value) => {
+    if (!value) return "";
+    const d = value instanceof Date ? value : new Date(`${value}T00:00:00Z`);
+    if (Number.isNaN(d.getTime())) return String(value);
+    return d.toLocaleDateString("en-US", {
+      year: "numeric",
+      month: "long",
+      timeZone: "UTC",
+    });
+  });
+
   // First N chars of a string, for the home-page preview snippets.
   eleventyConfig.addFilter("excerpt", (text, len = 130) => {
     const s = String(text ?? "").trim();
@@ -58,6 +70,14 @@ export default function (eleventyConfig) {
   eleventyConfig.addCollection("reviews", (api) =>
     api
       .getFilteredByGlob("src/music/reviews/*.md")
+      .filter((p) => !p.data.draft)
+      .sort(newestFirst)
+  );
+
+  // Monthly playlists. Drafts excluded.
+  eleventyConfig.addCollection("playlists", (api) =>
+    api
+      .getFilteredByGlob("src/music/playlists/*.md")
       .filter((p) => !p.data.draft)
       .sort(newestFirst)
   );
