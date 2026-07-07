@@ -147,15 +147,64 @@
   border-color: var(--border-bright);
 }
 
-.playlist-month {
+/* drilldown nav: years -> months */
+
+.playlist-nav {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+
+.playlist-nav a {
+  display: flex;
+  gap: 12px;
+  align-items: baseline;
+  padding: 10px 14px;
+  border: 1px solid var(--border);
+  background-color: var(--bg-inset);
+  text-decoration: none;
+  transition: border-color 0.15s;
+}
+
+.playlist-nav a:hover {
+  border-color: var(--border-bright);
+}
+
+.year-nav li {
+  margin-bottom: 8px;
+}
+
+.pl-year,
+.pl-month {
   font-family: 'VT323', monospace;
-  font-size: 26px;
+  font-size: 22px;
   color: var(--heading);
   letter-spacing: 1px;
   line-height: 1;
-  padding-bottom: 8px;
-  margin-bottom: 12px;
-  border-bottom: 1px solid var(--border);
+}
+
+.pl-count,
+.pl-monthname {
+  font-size: 11px;
+  color: var(--text-dim);
+}
+
+.playlist-nav a:hover .pl-count,
+.playlist-nav a:hover .pl-monthname {
+  color: var(--accent-pale);
+}
+
+/* months as a wrapped row of chips within a year */
+.month-nav {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+}
+
+.month-nav a {
+  flex-direction: column;
+  gap: 3px;
+  min-width: 78px;
 }
 
 .playlist-body p {

@@ -1,0 +1,23 @@
+---
+layout: layouts/base.njk
+pageCss: music.css
+face: "-.-"
+pagination:
+  data: collections.playlistYears
+  size: 1
+  alias: yg
+permalink: "/music/playlists/{{ yg.year }}/"
+eleventyComputed:
+  pageTitle: "playlists {{ yg.year }}"
+  pageHeading: "{{ yg.year }}"
+  pageSubtitle: "month"
+---
+<p class="section-link"><a href="/music/playlists/">← all years</a></p>
+<ul class="playlist-nav month-nav">
+{%- for m in yg.months %}
+  <li><a href="{{ m.url }}">
+    <span class="pl-month">{{ m.month }}</span>
+    <span class="pl-monthname">{{ m.iso | monthName }}</span>
+  </a></li>
+{%- endfor %}
+</ul>

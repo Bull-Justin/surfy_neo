@@ -1,8 +1,7 @@
 ---
-date: yyyy-mm-dd     # first of the month; drives ordering and the "Month Year" heading
-draft: true
+draft: true          # drop this line to publish
 ---
-Playlist — stuff about playlist
+Optional blurb about the month, then the songs as an ordered list.
 
 1. **Artist – Song Title** — one
 2. **Artist – Song Title** — another one
