@@ -1,0 +1,7 @@
+---
+layout: layouts/base.njk
+---
+<p class="section-link"><a href="/music/playlists/{{ page.fileSlug | year }}/">← {{ page.fileSlug | year }}</a></p>
+<article class="playlist-entry">
+  <div class="playlist-body">{{ content | safe }}</div>
+</article>

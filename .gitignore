@@ -5,4 +5,7 @@ node_modules/
 _site/
 .cache
 
+# these are notes for myself
 README.md
+
+.githooks
