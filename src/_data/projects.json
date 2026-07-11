@@ -6,5 +6,13 @@
     "description": "small website, stole some elements from work, probably going to be 90% blogs and music stuff that i dont want on socials",
     "link": "#",
     "tags": ["html", "css", "javascript", "eleventy"]
+  },
+  {
+    "id": "002",
+    "title": "october all over practice again",
+    "date": "2026-07-11",
+    "description": "gonna start recording practice sessions on purpose now that i have some time to do so - https://on.soundcloud.com/3aUcZlEMEYud6ExNhl",
+    "link": "https://on.soundcloud.com/3aUcZlEMEYud6ExNhl",
+    "tags": ["guitar", "unwound", "practice"]
   }
 ]
